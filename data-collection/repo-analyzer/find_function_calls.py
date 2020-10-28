@@ -5,11 +5,12 @@ class FindFunctionCalls(ast.NodeVisitor):
 
     def __init__(self):
         self.calls = list()
+        self.parent_call = None
 
     def visit_Call(self, node):
         call = dict()
         call['name'] = parse_call(node)
-        call['params'] = parse_params(node.args, node.keywords)
+        # call['params'] = parse_params(node.args, node.keywords)
         self.calls.append(call)
         self.generic_visit(node)
 

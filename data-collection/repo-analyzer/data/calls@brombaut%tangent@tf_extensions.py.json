@@ -1,0 +1,1318 @@
+[
+  {
+    "name": "tuple",
+    "parent_function": "size",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "max",
+    "parent_function": "size",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "np.prod",
+    "parent_function": "size",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "t.shape.as_list",
+    "parent_function": "shape_as_list",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.shape",
+    "parent_function": "tensor_shapes_match",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.shape",
+    "parent_function": "tensor_shapes_match",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "register_shape_function",
+    "parent_function": null,
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "register_shape_function",
+    "parent_function": null,
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "non_differentiable.register_non_differentiable_functions",
+    "parent_function": null,
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "register_init_grad",
+    "parent_function": null,
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "register_init_grad",
+    "parent_function": null,
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "register_all_add_grad",
+    "parent_function": null,
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "register_all_shape_checker",
+    "parent_function": null,
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "utils.create_unbroadcast_axis",
+    "parent_function": "unbroadcast_tfe_to",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "shape_as_list",
+    "parent_function": "unbroadcast_tfe_to",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.reshape",
+    "parent_function": "unbroadcast_tfe_to",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.reduce_sum",
+    "parent_function": "unbroadcast_tfe_to",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "unbroadcast_tfe_to",
+    "parent_function": "unbroadcast_tensor",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "shape_as_list",
+    "parent_function": "unbroadcast_tensor",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "register_unbroadcast",
+    "parent_function": null,
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "register_unbroadcast",
+    "parent_function": null,
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "range",
+    "parent_function": "unreduce_tensor",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "len",
+    "parent_function": "unreduce_tensor",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "isinstance",
+    "parent_function": "unreduce_tensor",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "sorted",
+    "parent_function": "unreduce_tensor",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.expand_dims",
+    "parent_function": "unreduce_tensor",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "np.array",
+    "parent_function": "unreduce_tensor",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "np.array",
+    "parent_function": "unreduce_tensor",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "shape_as_list",
+    "parent_function": "unreduce_tensor",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.tile",
+    "parent_function": "unreduce_tensor",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "register_unreduce",
+    "parent_function": null,
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "register_unreduce",
+    "parent_function": null,
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.matmul",
+    "parent_function": "matmul_adjoint_x",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.matmul",
+    "parent_function": "matmul_adjoint_x",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.matmul",
+    "parent_function": "matmul_adjoint_x",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.matmul",
+    "parent_function": "matmul_adjoint_x",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.matmul",
+    "parent_function": "matmul_adjoint_y",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.matmul",
+    "parent_function": "matmul_adjoint_y",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.matmul",
+    "parent_function": "matmul_adjoint_y",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.matmul",
+    "parent_function": "matmul_adjoint_y",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfexp",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtflog",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtftanh",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.sinh",
+    "parent_function": "dtfcosh",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfcosh",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.cosh",
+    "parent_function": "dtfsinh",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfsinh",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.pow",
+    "parent_function": "drsqrt",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.conj",
+    "parent_function": "drsqrt",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.constant",
+    "parent_function": "drsqrt",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "drsqrt",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.unbroadcast_tensor",
+    "parent_function": "dtfnegative",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.negative",
+    "parent_function": "dtfnegative",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfnegative",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.squeeze",
+    "parent_function": "dtfexpand_dims",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfexpand_dims",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.expand_dims",
+    "parent_function": "dtfsqueeze",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfsqueeze",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.reshape",
+    "parent_function": "dtfreshape",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.shape",
+    "parent_function": "dtfreshape",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfreshape",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.unreduce",
+    "parent_function": "dtfreduce_sum",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.shape_as_list",
+    "parent_function": "dtfreduce_sum",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfreduce_sum",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.constant",
+    "parent_function": "dtfreduce_mean",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "float",
+    "parent_function": "dtfreduce_mean",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.size",
+    "parent_function": "dtfreduce_mean",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.divide",
+    "parent_function": "dtfreduce_mean",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.unreduce",
+    "parent_function": "dtfreduce_mean",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.shape_as_list",
+    "parent_function": "dtfreduce_mean",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfreduce_mean",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.to_float",
+    "parent_function": "dtfreduce_max",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.equal",
+    "parent_function": "dtfreduce_max",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.unreduce",
+    "parent_function": "dtfreduce_max",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.shape_as_list",
+    "parent_function": "dtfreduce_max",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.multiply",
+    "parent_function": "dtfreduce_max",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.unreduce",
+    "parent_function": "dtfreduce_max",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.shape_as_list",
+    "parent_function": "dtfreduce_max",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfreduce_max",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.unbroadcast",
+    "parent_function": "dtfadd",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.unbroadcast",
+    "parent_function": "dtfadd",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfadd",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.unbroadcast",
+    "parent_function": "dtfsubtract",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.unbroadcast",
+    "parent_function": "dtfsubtract",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.negative",
+    "parent_function": "dtfsubtract",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfsubtract",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.unbroadcast",
+    "parent_function": "dtfmultiply",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.multiply",
+    "parent_function": "dtfmultiply",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.unbroadcast",
+    "parent_function": "dtfmultiply",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.multiply",
+    "parent_function": "dtfmultiply",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfmultiply",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.unbroadcast",
+    "parent_function": "dtfdivide",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.divide",
+    "parent_function": "dtfdivide",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.unbroadcast",
+    "parent_function": "dtfdivide",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.negative",
+    "parent_function": "dtfdivide",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.divide",
+    "parent_function": "dtfdivide",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.multiply",
+    "parent_function": "dtfdivide",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.multiply",
+    "parent_function": "dtfdivide",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfdivide",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.multiply",
+    "parent_function": "dtfmaximum",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.to_float",
+    "parent_function": "dtfmaximum",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.equal",
+    "parent_function": "dtfmaximum",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.multiply",
+    "parent_function": "dtfmaximum",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.to_float",
+    "parent_function": "dtfmaximum",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.equal",
+    "parent_function": "dtfmaximum",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfmaximum",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.unbroadcast",
+    "parent_function": "dtfsquared_difference",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.unbroadcast",
+    "parent_function": "dtfsquared_difference",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfsquared_difference",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.matmul_adjoint_x",
+    "parent_function": "dtfmatmul",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.matmul_adjoint_y",
+    "parent_function": "dtfmatmul",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfmatmul",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.nn.conv2d_backprop_input",
+    "parent_function": "dtfconv2d",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.shape",
+    "parent_function": "dtfconv2d",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.nn.conv2d_backprop_filter",
+    "parent_function": "dtfconv2d",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.shape",
+    "parent_function": "dtfconv2d",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfconv2d",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.nn.conv2d_backprop_filter",
+    "parent_function": "dtfconv2d_backprop_input",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.nn.conv2d",
+    "parent_function": "dtfconv2d_backprop_input",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfconv2d_backprop_input",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.nn.conv2d_backprop_input",
+    "parent_function": "dtfconv2d_backprop_filter",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.nn.conv2d",
+    "parent_function": "dtfconv2d_backprop_filter",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfconv2d_backprop_filter",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.nn._nn_grad.gen_nn_ops._avg_pool_grad",
+    "parent_function": "dtfavg_pool",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.shape",
+    "parent_function": "dtfavg_pool",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfavg_pool",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.nn._nn_grad.gen_nn_ops._max_pool_grad",
+    "parent_function": "dtfmax_pool",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "adjoint",
+    "parent_function": "dtfmax_pool",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.shape_as_list",
+    "parent_function": "tshape_as_list",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent_",
+    "parent_function": "tshape_as_list",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent_",
+    "parent_function": "ttfexp",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent_",
+    "parent_function": "ttflog",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.cosh",
+    "parent_function": "ttftanh",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent_",
+    "parent_function": "ttftanh",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.sinh",
+    "parent_function": "ttfcosh",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent_",
+    "parent_function": "ttfcosh",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.cosh",
+    "parent_function": "ttfsinh",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent_",
+    "parent_function": "ttfsinh",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.expand_dims",
+    "parent_function": "ttfexpand_dims",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent_",
+    "parent_function": "ttfexpand_dims",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.squeeze",
+    "parent_function": "ttfsqueeze",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent_",
+    "parent_function": "ttfsqueeze",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.reshape",
+    "parent_function": "ttfreshape",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent_",
+    "parent_function": "ttfreshape",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.reduce_sum",
+    "parent_function": "ttfreduce_sum",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent_",
+    "parent_function": "ttfreduce_sum",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.reduce_mean",
+    "parent_function": "ttfreduce_mean",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent_",
+    "parent_function": "ttfreduce_mean",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.to_float",
+    "parent_function": "ttfreduce_max",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.equal",
+    "parent_function": "ttfreduce_max",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.unreduce",
+    "parent_function": "ttfreduce_max",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.ones_like",
+    "parent_function": "ttfreduce_max",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.shape_as_list",
+    "parent_function": "ttfreduce_max",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.multiply",
+    "parent_function": "ttfreduce_max",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent_",
+    "parent_function": "ttfreduce_max",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.negative",
+    "parent_function": "ttfnegative",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent_",
+    "parent_function": "ttfnegative",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.add",
+    "parent_function": "ttfadd",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent_",
+    "parent_function": "ttfadd",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.subtract",
+    "parent_function": "ttfsubtract",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent_",
+    "parent_function": "ttfsubtract",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.add",
+    "parent_function": "ttfmultiply",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.multiply",
+    "parent_function": "ttfmultiply",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.multiply",
+    "parent_function": "ttfmultiply",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent_",
+    "parent_function": "ttfmultiply",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.divide",
+    "parent_function": "ttfdivide",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.subtract",
+    "parent_function": "ttfdivide",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.multiply",
+    "parent_function": "ttfdivide",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.multiply",
+    "parent_function": "ttfdivide",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.multiply",
+    "parent_function": "ttfdivide",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent_",
+    "parent_function": "ttfdivide",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.to_float",
+    "parent_function": "ttfmaximum",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.equal",
+    "parent_function": "ttfmaximum",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.to_float",
+    "parent_function": "ttfmaximum",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.equal",
+    "parent_function": "ttfmaximum",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent_",
+    "parent_function": "ttfmaximum",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.ForwardNotImplementedError",
+    "parent_function": "ttfavg_pool",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent_",
+    "parent_function": "ttfavg_pool",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent.ForwardNotImplementedError",
+    "parent_function": "ttfmax_pool",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent_",
+    "parent_function": "ttfmax_pool",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tf.shape",
+    "parent_function": "tshape",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangent_",
+    "parent_function": "tshape",
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "grads.UNIMPLEMENTED_ADJOINTS.update",
+    "parent_function": null,
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "grads.get_module_functions",
+    "parent_function": null,
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "set",
+    "parent_function": null,
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "tangents.UNIMPLEMENTED_TANGENTS.update",
+    "parent_function": null,
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "grads.get_module_functions",
+    "parent_function": null,
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  },
+  {
+    "name": "set",
+    "parent_function": null,
+    "abs_file_path": "/Users/BenRombaut/Desktop/Queens/CISC873/project/examples/tangent/tangent/tf_extensions.py",
+    "file_name": "tf_extensions.py",
+    "repo": "brombaut/tangent"
+  }
+]

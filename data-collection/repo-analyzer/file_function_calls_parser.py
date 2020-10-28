@@ -3,6 +3,7 @@ import os
 import json
 from pprint import pprint
 from find_function_calls import FindFunctionCalls
+from my_find_function_calls import MyFindFunctionCalls
 
 
 class FileFunctionCallsParser():
@@ -10,7 +11,7 @@ class FileFunctionCallsParser():
         self.abs_file = file
         self.file = os.path.basename(self.abs_file)
         self.repo = repo
-        self.ffc = FindFunctionCalls()
+        self.ffc = MyFindFunctionCalls()
         self.function_calls = list()
 
     def find_all(self):
@@ -22,10 +23,10 @@ class FileFunctionCallsParser():
         self.function_calls = list()
         for call in self.ffc.calls:
             self.function_calls.append(self.add_file_data(call))
-        pprint(self.function_calls)
+        # pprint(self.function_calls)
 
     def export_to_json(self):
-        with open('./data/calls@{}@{}.json'.format(self.repo.replace('/', '@'), self.file), 'w') as f:
+        with open('./data/calls@{}@{}.json'.format(self.repo.replace('/', '%'), self.file), 'w') as f:
             json.dump(self.function_calls, f)
 
     def add_file_data(self, call):
