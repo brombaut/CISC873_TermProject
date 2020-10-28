@@ -22,14 +22,13 @@ class FileFunctionCallsParser():
         self.ffc.visit(tree)
         self.function_calls = list()
         for call in self.ffc.calls:
-            self.function_calls.append(self.add_file_data(call))
-        # pprint(self.function_calls)
+            self.function_calls.append(self._add_file_data(call))
 
     def export_to_json(self):
-        with open('./data/calls@{}@{}.json'.format(self.repo.replace('/', '%'), self.file), 'w') as f:
+        with open('./data/calls@{}@{}.json'.format(self.repo.replace('/', '@'), self.file), 'w') as f:
             json.dump(self.function_calls, f)
 
-    def add_file_data(self, call):
+    def _add_file_data(self, call):
         call['abs_file_path'] = self.abs_file
         call['file_name'] = self.file
         call['repo'] = self.repo

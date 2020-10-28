@@ -1,8 +1,7 @@
 import argparse
 import os
-import ast
-from pprint import pprint
 from file_function_calls_parser import FileFunctionCallsParser
+from find_ml_library_imports import FindMLLibraryImports
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-d', '--dir', help="search directory")
@@ -42,31 +41,11 @@ def get_project_python_files(directory):
 def get_files_that_import_ml_libs(py_files):
     result = list()
     for file in py_files:
-        if file_imports_ml_library(file):
+        import_checker = FindMLLibraryImports(file)
+        import_checker.parse()
+        if import_checker.file_imports_ml_libraries():
             result.append(file)
     return result
-
-
-def file_imports_ml_library(file_name):
-    try:
-        source = open(file_name, "r")
-    except:
-        raise SystemExit("The file doesn't exist or it isn't a Python script ...")
-
-    tree = ast.parse(source.read())
-    tree_body = tree.body
-    for item in tree_body:
-        if isinstance(item, ast.Import):
-            if item.names[0].name == "keras":
-                return True
-            elif item.names[0].name == "tensorflow":
-                return True
-        if isinstance(item, ast.ImportFrom):
-            if "keras" in item.module:
-                return True
-            elif "tensorflow" in item.module:
-                return True
-    return False
 
 
 if __name__ == "__main__":
