@@ -2,7 +2,7 @@ old/
 env/
 __pycache__/
 examples/
-
+data/*.json
 # Compiled source #
 ###################
 *.com

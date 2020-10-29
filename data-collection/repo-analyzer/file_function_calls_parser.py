@@ -2,7 +2,6 @@ import ast
 import os
 import json
 from pprint import pprint
-from find_function_calls import FindFunctionCalls
 from my_find_function_calls import MyFindFunctionCalls
 
 
@@ -25,7 +24,7 @@ class FileFunctionCallsParser():
             self.function_calls.append(self._add_file_data(call))
 
     def export_to_json(self):
-        with open('./data/calls@{}@{}.json'.format(self.repo.replace('/', '@'), self.file), 'w') as f:
+        with open('../../data/calls@{}@{}.json'.format(self.repo.replace('/', '@'), self.file), 'w') as f:
             json.dump(self.function_calls, f)
 
     def _add_file_data(self, call):
