@@ -1,5 +1,0 @@
-
-# Get files that import tensorflow
-astpath -d "./" "//Import/names//alias[@name='tensorflow']"
-
-astpath -d "./" "//Call/func//value/Name[@id='tf']"
