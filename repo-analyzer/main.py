@@ -1,11 +1,20 @@
 import argparse
 import os
-from file_function_calls_parser import FileFunctionCallsParser
 from find_ml_library_imports import FindMLLibraryImports
+from file_imports_parser import FileImportsParser
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-d', '--dir', help="search directory")
 parser.add_argument('-r', '--repo', help="repo org/name")
+parser.add_argument('-v', '--repoversion', help="repo version")
+
+OUTPUT_DIR = "./data/"
+ML_LIBRARIES = [
+    "tensorflow",
+    "torch"
+    # "keras"
+    # "numpy"
+]
 
 
 def main():
@@ -14,9 +23,12 @@ def main():
     py_files = get_project_python_files(args.dir)
     ml_library_py_files = get_files_that_import_ml_libs(py_files)
     for file in ml_library_py_files:
-        ffcp = FileFunctionCallsParser(file, args.repo)
-        ffcp.find_all()
-        ffcp.export_to_json()
+        fip = FileImportsParser(file, args.repo, args.repoversion, OUTPUT_DIR)
+        fip.parse()
+        fip.write_to_json()
+        # ffcp = FileFunctionCallsParser(file, args.repo)
+        # ffcp.find_all()
+        # ffcp.export_to_json()
 
 
 def exit_if_invalid_args(args):
@@ -24,6 +36,8 @@ def exit_if_invalid_args(args):
         raise SystemExit("ERROR: -d --dir arg should be directory.")
     if args.repo is None:
         raise SystemExit("ERROR: -r --repo arg should be repo org/name.")
+    if args.repoversion is None:
+        raise SystemExit("ERROR: -v --repoversion arg should be repo release version.")
 
 
 def get_project_python_files(directory):
@@ -41,7 +55,7 @@ def get_project_python_files(directory):
 def get_files_that_import_ml_libs(py_files):
     result = list()
     for file in py_files:
-        import_checker = FindMLLibraryImports(file)
+        import_checker = FindMLLibraryImports(file, ML_LIBRARIES)
         import_checker.parse()
         if import_checker.file_imports_ml_libraries():
             result.append(file)

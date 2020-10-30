@@ -2,7 +2,9 @@ old/
 env/
 __pycache__/
 examples/
-data/*.json
+data/**/*.json
+data/**/*.json.READ
+
 # Compiled source #
 ###################
 *.com
