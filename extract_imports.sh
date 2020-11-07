@@ -17,7 +17,7 @@ do
     mkdir ./data/repos/${repo_dir}
     git clone git@github.com:${repo}.git ${REPOS_DATA_DIR}${repo_dir}
   fi
-  cd ${REPOS_DATA_DIR}${repo_dir}
+  cd ${REPOS_DATA_DIR}${repo_dir} # CD into repo
   git fetch --all --tags
   # tags=$(git tag --list)
   tags=$(git for-each-ref --sort=creatordate --format '%(refname) %(creatordate)' refs/tags)
@@ -34,13 +34,15 @@ do
       time="${tag_out_array[4]}"
       year="${tag_out_array[5]}"
       git checkout $tag
-      cd ../../../
+      cd ../../../  # Back to root level
       
-      python ./repo-analyzer/repo_analyzer.py --dir ${REPOS_DATA_DIR}${repo_dir} --repo $repo --repoversion $tag
-      python ./repo-analyzer/write_repo_release_to_csv.py -r $repo -v $tag -n $release_count -y $year -m $month -d $day -t $time
+      python ./data_transform_scripts/repo_analyzer.py --dir ${REPOS_DATA_DIR}${repo_dir} --repo $repo --repoversion $tag
+      
+      python ./data_transform_scripts/write_repo_release_to_csv.py -r $repo -v $tag -n $release_count -y $year -m $month -d $day -t $time
+      
       release_count=$((release_count+1))
       
-      cd ${REPOS_DATA_DIR}${repo_dir}
+      cd ${REPOS_DATA_DIR}${repo_dir}  # CD into repo
   done <<< "$tags"
   cd ../../../
   rm -rf ${REPOS_DATA_DIR}${repo_dir}
@@ -48,4 +50,4 @@ done
 
 
 # Extract all into single csv
-python repo-analyzer/parse_import_jsons_to_csv.py
+python data_transform_scripts/parse_import_jsons_to_csv.py
