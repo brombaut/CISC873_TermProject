@@ -138,7 +138,7 @@ class Repo:
             old_release = new_release
 
     def _get_sorted_releases(self):
-        result = {k: v for k, v in sorted(self.releases.items(), key=lambda item: item[1].release_number)}
+        result = {k: v for k, v in sorted(self.releases.items(), key=lambda item: int(item[1].release_number))}
         return result
 
 
