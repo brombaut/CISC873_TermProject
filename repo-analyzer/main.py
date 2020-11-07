@@ -7,6 +7,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-d', '--dir', help="search directory")
 parser.add_argument('-r', '--repo', help="repo org/name")
 parser.add_argument('-v', '--repoversion', help="repo version")
+parser.add_argument('-t', '--testing', help="run as testing", nargs="?", const="tangent")
+
 
 OUTPUT_DIR = "./data/"
 ML_LIBRARIES = [
@@ -17,13 +19,29 @@ ML_LIBRARIES = [
 ]
 
 
+TEST_OPTIONS = {
+    'tangent': {
+        'dir': './examples/tangent/',
+        'repo': 'brombaut/tangent',
+        'repoversion': '0.0.0'
+    },
+    'neuralint': {
+        'dir': './examples/neuralint/',
+        'repo': 'brombaut/neuralint',
+        'repoversion': '0.0.0'
+    }
+}
+
+
 def main():
     args = parser.parse_args()
     exit_if_invalid_args(args)
     py_files = get_project_python_files(args.dir)
     ml_library_py_files = get_files_that_import_ml_libs(py_files)
     for file in ml_library_py_files:
-        fip = FileImportsParser(file, args.repo, args.repoversion, OUTPUT_DIR)
+        repo_dir = os.path.abspath(args.dir)
+        file_path_in_repo = file[len(repo_dir) + 1:]
+        fip = FileImportsParser(file, args.repo, args.repoversion, OUTPUT_DIR, file_path_in_repo)
         fip.parse()
         fip.write_to_json()
         # ffcp = FileFunctionCallsParser(file, args.repo)
@@ -32,6 +50,11 @@ def main():
 
 
 def exit_if_invalid_args(args):
+    print(args.testing)
+    if args.testing:
+        setattr(args, 'dir', TEST_OPTIONS[args.testing]['dir'])
+        setattr(args, 'repo', TEST_OPTIONS[args.testing]['repo'])
+        setattr(args, 'repoversion', TEST_OPTIONS[args.testing]['repoversion'])
     if args.dir is None or os.path.isfile(args.dir):
         raise SystemExit("ERROR: -d --dir arg should be directory.")
     if args.repo is None:

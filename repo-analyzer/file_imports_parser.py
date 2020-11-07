@@ -5,8 +5,9 @@ from pprint import pprint
 
 
 class FileImportsParser():
-    def __init__(self, file, repo, version, output_dir):
+    def __init__(self, file, repo, version, output_dir, file_path_in_repo):
         self.abs_file = file
+        self.file_path_in_repo = file_path_in_repo
         self.file = os.path.basename(self.abs_file)
         self.repo = repo
         self.version = version
@@ -44,6 +45,7 @@ class FileImportsParser():
     def _build_file_output(self):
         result = dict()
         result['file'] = self.file
+        result['file_in_repo'] = self.file_path_in_repo
         result['repo'] = self.repo
         result['repo_version'] = self.version
         result['imports'] = self.imports
