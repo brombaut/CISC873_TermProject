@@ -4,9 +4,10 @@ import os
 import glob
 
 INPUT_FILE_SEARCH = "./data/imports/imports@*.json"
-OUTPUT_FILE_PATH = "./data/csv/imports-2020-10-29.csv"
+OUTPUT_FILE_PATH = "./data/csv/imports.csv"
 IMPORT_FIELD_NAMES = [
     "file",
+    "file_in_repo",
     "repo",
     "repo_version",
     "name",
@@ -55,6 +56,7 @@ def parse_imports_from_file(file_path):
     repo_version = contents['repo_version']
     for i in contents['imports']:
         i['file'] = contents['file']
+        i['file_in_repo'] = contents['file_in_repo']
         i['repo'] = contents['repo']
         i['repo_version'] = contents['repo_version']
         result.append(i)
@@ -65,15 +67,6 @@ def load_file(file_path):
     with open(file_path, 'r') as f:
         json_contents = json.load(f)
     return json_contents
-
-
-def parse_pr_event(pr_event):
-    result = dict()
-    result['pr_event.id'] = pr_event['id']
-    result['pr_event.repo_id'] = pr_event['repo']['id']
-    result['pr_event.title'] = pr_event['payload']['pull_request']['title']
-    result['pr_event.pr_id'] = pr_event['payload']['pull_request']['id']
-    return result
 
 
 def write_line(output_file_path, import_dict):

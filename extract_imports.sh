@@ -2,7 +2,7 @@
 
 # TODO: List of repos
 declare -a repos=(
-  "google/tangent"
+  # "google/tangent"
   "tensorflow/ranking"
 )
 
@@ -19,13 +19,27 @@ do
   fi
   cd ${REPOS_DATA_DIR}${repo_dir}
   git fetch --all --tags
-  tags=$(git tag --list)
-  while read -r tag
+  # tags=$(git tag --list)
+  tags=$(git for-each-ref --sort=creatordate --format '%(refname) %(creatordate)' refs/tags)
+  release_count=0
+  while read -r tag_line
   do
-      echo "TAG $tag"
+      echo "TAG $tag_line"
+      IFS=' '
+      read -a tag_out_array <<< "$tag_line"
+      tag="${tag_out_array[0]}"
+      tag="${tag##*refs/tags/}" # Rmove the "refs/tags/" prefix
+      month="${tag_out_array[2]}"
+      day="${tag_out_array[3]}"
+      time="${tag_out_array[4]}"
+      year="${tag_out_array[5]}"
       git checkout $tag
       cd ../../../
-      python ./repo-analyzer/main.py --dir ${REPOS_DATA_DIR}${repo_dir} --repo $repo --repoversion $tag
+      
+      python ./repo-analyzer/repo_analyzer.py --dir ${REPOS_DATA_DIR}${repo_dir} --repo $repo --repoversion $tag
+      python ./repo-analyzer/write_repo_release_to_csv.py -r $repo -v $tag -n $release_count -y $year -m $month -d $day -t $time
+      release_count=$((release_count+1))
+      
       cd ${REPOS_DATA_DIR}${repo_dir}
   done <<< "$tags"
   cd ../../../
