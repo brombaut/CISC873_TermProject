@@ -1,6 +1,6 @@
 import unittest
-from data_transform_scripts.library_imports_finder import LibraryImportsFinder
-from data_transform_scripts.source_imports_parser import ImportsParser
+from library_imports_finder import LibraryImportsFinder
+from source_imports_parser import ImportsParser
 
 
 class TestLibraryImportsFinder(unittest.TestCase):

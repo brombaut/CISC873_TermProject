@@ -1,7 +1,7 @@
 import argparse
 import os
-from data_transform_scripts.library_imports_finder import LibraryImportsFinder
-from data_transform_scripts.source_imports_parser import ImportsParser
+from library_imports_finder import LibraryImportsFinder
+from source_imports_parser import ImportsParser
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-d', '--dir', help="search directory")
