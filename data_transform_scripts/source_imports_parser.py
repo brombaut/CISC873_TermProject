@@ -4,8 +4,9 @@ import json
 from pprint import pprint
 
 
-class FileImportsParser():
-    def __init__(self, file, repo, version, output_dir, file_path_in_repo):
+class ImportsParser:
+    def __init__(self, source, file, repo, version, output_dir, file_path_in_repo):
+        self.source = source
         self.abs_file = file
         self.file_path_in_repo = file_path_in_repo
         self.file = os.path.basename(self.abs_file)
@@ -15,11 +16,7 @@ class FileImportsParser():
         self.imports = list()
 
     def parse(self):
-        try:
-            source = open(self.abs_file, "r")
-        except:
-            raise SystemExit("The file doesn't exist or it isn't a Python script ...")
-        tree = ast.parse(source.read())
+        tree = ast.parse(self.source)
         tree_body = tree.body
         for item in tree_body:
             if isinstance(item, ast.Import):
@@ -40,9 +37,9 @@ class FileImportsParser():
     def write_to_json(self):
         output_file = "{}imports/imports@{}@{}@{}.json".format(self.output_dir, self.repo.replace('/', '$'), self.version, self.file)
         with open(output_file, 'w') as f:
-            json.dump(self._build_file_output(), f)
+            json.dump(self.as_json(), f)
 
-    def _build_file_output(self):
+    def as_json(self):
         result = dict()
         result['file'] = self.file
         result['file_in_repo'] = self.file_path_in_repo

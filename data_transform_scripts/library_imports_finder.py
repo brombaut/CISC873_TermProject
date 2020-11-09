@@ -1,20 +1,16 @@
-import os
 import ast
 
 
-class FindMLLibraryImports:
+class LibraryImportsFinder:
 
-    def __init__(self, file_name, ml_libs):
+    def __init__(self, source, file_name, libraries):
+        self.source = source
         self.file_name = file_name
         self.imports_ml_libraries = False
-        self.ml_libraries = ml_libs
+        self.ml_libraries = libraries
 
     def parse(self):
-        try:
-            source = open(self.file_name, "r")
-        except:
-            raise SystemExit("The file doesn't exist or it isn't a Python script ...")
-        tree = ast.parse(source.read())
+        tree = ast.parse(self.source)
         tree_body = tree.body
         for item in tree_body:
             if isinstance(item, ast.Import):
@@ -28,5 +24,5 @@ class FindMLLibraryImports:
                         return
         self.imports_ml_libraries = False
 
-    def file_imports_ml_libraries(self):
+    def file_imports_libraries(self):
         return self.imports_ml_libraries

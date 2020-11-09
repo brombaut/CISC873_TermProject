@@ -1,7 +1,7 @@
 import argparse
 import os
-from find_ml_library_imports import FindMLLibraryImports
-from file_imports_parser import FileImportsParser
+from data_transform_scripts.library_imports_finder import LibraryImportsFinder
+from data_transform_scripts.source_imports_parser import ImportsParser
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-d', '--dir', help="search directory")
@@ -41,7 +41,11 @@ def main():
     for file in ml_library_py_files:
         repo_dir = os.path.abspath(args.dir)
         file_path_in_repo = file[len(repo_dir) + 1:]
-        fip = FileImportsParser(file, args.repo, args.repoversion, OUTPUT_DIR, file_path_in_repo)
+        try:
+            source = open(file, "r")
+        except Exception:
+            raise SystemExit("The file doesn't exist or it isn't a Python script ...")
+        fip = ImportsParser(source.read(), file, args.repo, args.repoversion, OUTPUT_DIR, file_path_in_repo)
         fip.parse()
         fip.write_to_json()
         # ffcp = FileFunctionCallsParser(file, args.repo)
@@ -50,7 +54,6 @@ def main():
 
 
 def exit_if_invalid_args(args):
-    print(args.testing)
     if args.testing:
         setattr(args, 'dir', TEST_OPTIONS[args.testing]['dir'])
         setattr(args, 'repo', TEST_OPTIONS[args.testing]['repo'])
@@ -78,9 +81,13 @@ def get_project_python_files(directory):
 def get_files_that_import_ml_libs(py_files):
     result = list()
     for file in py_files:
-        import_checker = FindMLLibraryImports(file, ML_LIBRARIES)
-        import_checker.parse()
-        if import_checker.file_imports_ml_libraries():
+        try:
+            source = open(file, "r")
+        except Exception:
+            raise SystemExit("The file doesn't exist or it isn't a Python script ...")
+        imports_finder = LibraryImportsFinder(source.read(), file, ML_LIBRARIES)
+        imports_finder.parse()
+        if imports_finder.file_imports_libraries():
             result.append(file)
     return result
 
