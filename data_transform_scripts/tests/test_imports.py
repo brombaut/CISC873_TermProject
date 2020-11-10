@@ -1,6 +1,6 @@
 import unittest
-from library_imports_finder import LibraryImportsFinder
-from source_imports_parser import ImportsParser
+from ..library_imports_finder import LibraryImportsFinder
+from ..source_imports_parser import ImportsParser
 
 
 class TestLibraryImportsFinder(unittest.TestCase):
@@ -15,6 +15,14 @@ class TestLibraryImportsFinder(unittest.TestCase):
 import x
 import y
 import tensorflow as tf
+        '''
+        finder = LibraryImportsFinder(source, self.file, self.libraries)
+        finder.parse()
+        self.assertTrue(finder.file_imports_libraries())
+
+    def test_library_is_imported_from_module(self):
+        source = '''
+from tensorflow.python.ops import resource_variable_ops
         '''
         finder = LibraryImportsFinder(source, self.file, self.libraries)
         finder.parse()

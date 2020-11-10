@@ -1,7 +1,6 @@
 import ast
 import os
 import json
-from pprint import pprint
 
 
 class ImportsParser:
