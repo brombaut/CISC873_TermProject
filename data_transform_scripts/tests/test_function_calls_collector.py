@@ -223,29 +223,22 @@ def unbroadcast_tfe_to(tensor, shape):
         result = collector.function_calls
         self.assertCountEqual(expected, result)
 
-
-
-
-
-
-
-
-
-
-
-
-
-# def unbroadcast_tfe_to(tensor, shape):
-#   """Reverse the broadcasting operation.
-#
-#   See utils.py.
-#
-#   Args:
-#     tensor: A Tensor.
-#     shape: A shape that could have been broadcasted to the shape of tensor.
-#
-#   Returns:
-#     Tensor with dimensions summed to match `shape`.
-#   """
-#   axis = utils.create_unbroadcast_axis(shape, shape_as_list(tensor))
-#   return tf.reshape(tf.reduce_sum(tensor, axis=axis), shape)
+    def test_different_call_params(self):
+        source = '''
+func(d[4], f['g'], (1, 2, 3), [4, 5, 6], 1 + 2)
+        '''
+        collector = FunctionCallsCollector(self.file, self.repo, source)
+        collector.find_all()
+        self.maxDiff = None
+        expected = [
+            {
+                "name": "func",
+                "params": {0: "d[4]", 1: "f['g']", 2: '(1,2,3)', 3: "[4,5,6]", 4: 'UNKNOWN_ARG_TYPE=BinOp'},
+                "parent_function": None,
+                "abs_file_path": "test_file.py",
+                "file_name": "test_file.py",
+                "repo": "brombaut/test"
+            },
+        ]
+        result = collector.function_calls
+        self.assertCountEqual(expected, result)
