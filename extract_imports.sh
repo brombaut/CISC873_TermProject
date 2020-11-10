@@ -36,7 +36,7 @@ do
       git checkout $tag
       cd ../../../  # Back to root level
       
-      python ./data_transform_scripts/repo_analyzer.py --dir ${REPOS_DATA_DIR}${repo_dir} --repo $repo --repoversion $tag
+      python ./repo_analyzer.py --dir ${REPOS_DATA_DIR}${repo_dir} --repo $repo --repoversion $tag
       
       python ./data_transform_scripts/write_repo_release_to_csv.py -r $repo -v $tag -n $release_count -y $year -m $month -d $day -t $time
       

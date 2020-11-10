@@ -1,7 +1,9 @@
 import argparse
 import os
-from .library_imports_finder import LibraryImportsFinder
-from .source_imports_parser import ImportsParser
+from data_transform_scripts.library_imports_finder import LibraryImportsFinder
+from data_transform_scripts.source_imports_parser import ImportsParser
+from data_transform_scripts.function_calls_collector import FunctionCallsCollector
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-d', '--dir', help="search directory")
@@ -38,16 +40,19 @@ def main():
     exit_if_invalid_args(args)
     py_files = get_project_python_files(args.dir)
     ml_library_py_files = get_files_that_import_ml_libs(py_files)
+    repo_dir = os.path.abspath(args.dir)
+    repo_name = args.repo
+    repo_version = args.repoversion
     for file in ml_library_py_files:
-        repo_dir = os.path.abspath(args.dir)
         file_path_in_repo = file[len(repo_dir) + 1:]
         source = read_py_file_source(file)
-        fip = ImportsParser(source, file, args.repo, args.repoversion, OUTPUT_DIR, file_path_in_repo)
-        fip.parse()
-        fip.write_to_json()
-        # ffcp = FileFunctionCallsParser(file, args.repo)
-        # ffcp.find_all()
-        # ffcp.export_to_json()
+        imports_parser = ImportsParser(source, file, repo_name, repo_version, OUTPUT_DIR, file_path_in_repo)
+        imports_parser.parse()
+        imports_parser.write_to_json()
+
+        collector = FunctionCallsCollector(file, repo_name, repo_version, source, OUTPUT_DIR, file_path_in_repo)
+        collector.find_all()
+        collector.export_to_json()
 
 
 def exit_if_invalid_args(args):

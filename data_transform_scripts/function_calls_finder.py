@@ -128,8 +128,6 @@ class FunctionCallsFinder(ast.NodeVisitor):
 
     def _parse_list(self, n_list):
         arg_list = self._parse_args(n_list.elts)
-        # for elt in n_list.elts:
-        #     arg_list.append(self._parse_arg(elt))
         return "[{}]".format(",".join(arg_list))
 
     def _parse_subscript(self, n_subscript):
