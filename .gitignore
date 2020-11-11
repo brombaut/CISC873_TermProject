@@ -4,6 +4,7 @@ __pycache__/
 examples/
 data/**/*.json
 data/**/*.json.READ
+data/**/*.csv
 
 # Compiled source #
 ###################

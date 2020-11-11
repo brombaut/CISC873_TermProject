@@ -39,7 +39,10 @@ class FunctionCallsFinder(ast.NodeVisitor):
             return self._parse_name(func)
         elif isinstance(func, ast.Attribute):
             return self._parse_attribute(func)
+        elif isinstance(func, ast.Call):
+            return self._parse_call(func)
         else:
+            # return "Unknown ParseCall Instance: {}".format(func.__class__.__name__)
             raise Exception("Unknown ParseCall Instance: {}".format(func.__class__.__name__))
 
     def _parse_args(self, args):
@@ -149,9 +152,11 @@ class FunctionCallsFinder(ast.NodeVisitor):
             lower = self._parse_arg(n_slice.lower)
             upper = self._parse_arg(n_slice.upper)
             return "{}:{}".format(lower, upper)
+        elif isinstance(n_slice, ast.Name):
+            return self._parse_name(n_slice)
         else:
-            print("ParseSlice: Unknown n_slice={}".format(n_slice.value.__class__.__name__))
-            return n_slice.__class__.__name__
+            print("ParseSlice: Unknown n_slice={}".format(n_slice.__class__.__name__))
+            return "UNKNOWN={}".format(n_slice.__class__.__name__)
 
     def _parse_index(self, n_index):
         if isinstance(n_index.value, ast.Constant):
@@ -161,5 +166,5 @@ class FunctionCallsFinder(ast.NodeVisitor):
         elif isinstance(n_index.value, ast.Attribute):
             return self._parse_attribute(n_index.value)
         else:
-            print("ParseIndex: Unknown n_index.value={}".format(n_index.value.__class__.__name__))
+            print("ParseIndex: Unknown n_index.value={}".format(n_index.__class__.__name__))
             return n_index.value.__class__.__name__

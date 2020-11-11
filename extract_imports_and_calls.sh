@@ -2,8 +2,8 @@
 
 # TODO: List of repos
 declare -a repos=(
-  # "google/tangent"
-  "tensorflow/ranking"
+  "google/tangent"
+  # "tensorflow/ranking"
 )
 
 source env/bin/activate
@@ -51,3 +51,4 @@ done
 
 # Extract all into single csv
 python data_transform_scripts/parse_import_jsons_to_csv.py
+# python data_transform_scripts/parse_call_jsons_to_csv.py

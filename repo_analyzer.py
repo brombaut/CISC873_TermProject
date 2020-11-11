@@ -15,9 +15,9 @@ parser.add_argument('-t', '--testing', help="run as testing", nargs="?", const="
 OUTPUT_DIR = "./data/"
 ML_LIBRARIES = [
     "tensorflow",
-    "torch"
-    # "keras"
-    # "numpy"
+    "torch",
+    "theano",
+    "keras"
 ]
 
 
@@ -50,9 +50,9 @@ def main():
         imports_parser.parse()
         imports_parser.write_to_json()
 
-        collector = FunctionCallsCollector(file, repo_name, repo_version, source, OUTPUT_DIR, file_path_in_repo)
-        collector.find_all()
-        collector.export_to_json()
+        # collector = FunctionCallsCollector(file, repo_name, repo_version, source, OUTPUT_DIR, file_path_in_repo)
+        # collector.find_all()
+        # collector.export_to_json()
 
 
 def exit_if_invalid_args(args):
