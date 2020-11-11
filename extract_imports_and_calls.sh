@@ -2,9 +2,17 @@
 
 # TODO: List of repos
 declare -a repos=(
-  # "google/tangent"
-  # "tensorflow/ranking"
+  "google/tangent"
+  "tensorflow/ranking"
   "chainer/chainercv"
+  "OpenMined/PySyft"
+  "keras-team/keras"
+  "deepchem/deepchem"
+  "ray-project/ray"
+  "NifTK/NiftyNet"
+  "streamlit/streamlit"
+  "AKSHAYUBHAT/DeepVideoAnalytics"
+  "tensorlayer/tensorlayer"
 )
 
 source env/bin/activate
@@ -53,3 +61,5 @@ done
 # Extract all into single csv
 python data_transform_scripts/parse_import_jsons_to_csv.py
 # python data_transform_scripts/parse_call_jsons_to_csv.py
+
+python data_transform_scripts/parse_import_diffs.py

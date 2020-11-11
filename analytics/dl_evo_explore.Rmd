@@ -1,0 +1,70 @@
+---
+title: "DL_Library_Evolution"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(data.table)
+library("dplyr")
+library(ggplot2)
+
+```
+
+
+```{r}
+import_diffs_file <- "/Users/BenRombaut/Desktop/Queens/CISC873/project/data/csv/import_diffs.csv"
+imports_file <- "/Users/BenRombaut/Desktop/Queens/CISC873/project/data/csv/imports.csv"
+releases_file <- "/Users/BenRombaut/Desktop/Queens/CISC873/project/data/csv/releases.csv"
+
+import_diffs <- fread(import_diffs_file, nThread=2)
+imports <- fread(imports_file, nThread=2)
+releases <- fread(releases_file, nThread=2)
+```
+
+```{r}
+build_release_date <- function(release) {
+  date_string <-
+    paste(c(release["month"], release["day"], release["year"]), collapse="-")
+  # r_date <-
+  #  as.POSIXlt(date_string, format = "%b-%d-%Y")
+  r_date <-
+    as.Date(date_string, format = "%b-%d-%Y")
+  return(as.character(r_date))
+}
+releases$release_date <- apply(releases, MARGIN=1, build_release_date)
+
+get_release_date <- function(import_diff) {
+  release_date <- releases[repo == import_diff["repo"] & version == import_diff["new_release"]]$release_date
+  return(release_date)
+}
+import_diffs$release_date <- apply(import_diffs, MARGIN=1, get_release_date)
+```
+
+```{r}
+ml_libraries = c("tensorflow", "torch", "theano", "keras")
+ml_imports <- imports[name %in% ml_libraries]
+ml_import_diffs <- import_diffs[import_name %in% ml_libraries]
+```
+
+
+Adding DL Lib Imports
+```{r}
+libary_adds_across_releases <- ml_import_diffs[type == "ADD"] %>% 
+  group_by(release_date, import_name) %>% 
+  summarize(count=n())
+ggplot(libary_adds_across_releases, aes(fill=import_name, y=count, x=release_date)) + 
+    geom_bar(position="dodge", stat="identity")
+
+```
+
+Deleting DL Lib Imports
+```{r}
+libary_deletes_across_releases <- ml_import_diffs[type == "DELETE"] %>% 
+  group_by(new_release, import_name) %>% 
+  summarize(count=n())
+ggplot(libary_deletes_across_releases, aes(fill=import_name, y=count, x=new_release)) + 
+    geom_bar(position="dodge", stat="identity")
+
+```
+
