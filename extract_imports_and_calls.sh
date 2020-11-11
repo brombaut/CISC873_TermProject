@@ -2,8 +2,9 @@
 
 # TODO: List of repos
 declare -a repos=(
-  "google/tangent"
+  # "google/tangent"
   # "tensorflow/ranking"
+  "chainer/chainercv"
 )
 
 source env/bin/activate
