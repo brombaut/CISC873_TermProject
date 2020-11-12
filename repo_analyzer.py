@@ -39,16 +39,19 @@ def main():
     args = parser.parse_args()
     exit_if_invalid_args(args)
     py_files = get_project_python_files(args.dir)
-    ml_library_py_files = get_files_that_import_ml_libs(py_files)
     repo_dir = os.path.abspath(args.dir)
     repo_name = args.repo
     repo_version = args.repoversion
+    ml_library_py_files = get_files_that_import_ml_libs(py_files, repo_dir, repo_name, repo_version)
     for file in ml_library_py_files:
-        file_path_in_repo = file[len(repo_dir) + 1:]
-        source = read_py_file_source(file)
-        imports_parser = ImportsParser(source, file, repo_name, repo_version, OUTPUT_DIR, file_path_in_repo, ML_LIBRARIES)
-        imports_parser.parse()
-        imports_parser.write_to_json()
+        try:
+            file_path_in_repo = file[len(repo_dir) + 1:]
+            source = read_py_file_source(file)
+            imports_parser = ImportsParser(source, file, repo_name, repo_version, OUTPUT_DIR, file_path_in_repo, ML_LIBRARIES)
+            imports_parser.parse()
+            imports_parser.write_to_json()
+        except Exception as e:
+            print("Error Parsing {}--{}--{}".format(repo_name, repo_version, file_path_in_repo))
 
         # collector = FunctionCallsCollector(file, repo_name, repo_version, source, OUTPUT_DIR, file_path_in_repo)
         # collector.find_all()
@@ -80,7 +83,7 @@ def get_project_python_files(directory):
     return list_of_files
 
 
-def get_files_that_import_ml_libs(py_files):
+def get_files_that_import_ml_libs(py_files, repo_dir, repo_name, repo_version):
     result = list()
     for file in py_files:
         try:
@@ -88,9 +91,13 @@ def get_files_that_import_ml_libs(py_files):
         except Exception:
             raise SystemExit("The file doesn't exist or it isn't a Python script ...")
         imports_finder = LibraryImportsFinder(source.read(), file, ML_LIBRARIES)
-        imports_finder.parse()
-        if imports_finder.file_imports_libraries():
-            result.append(file)
+        try:
+            imports_finder.parse()
+            if imports_finder.file_imports_libraries():
+                result.append(file)
+        except Exception as e:
+            file_path_in_repo = file[len(repo_dir) + 1:]
+            print("Error Parsing {}--{}--{}".format(repo_name, repo_version, file_path_in_repo))     
     return result
 
 
