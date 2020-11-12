@@ -46,7 +46,7 @@ def main():
     for file in ml_library_py_files:
         file_path_in_repo = file[len(repo_dir) + 1:]
         source = read_py_file_source(file)
-        imports_parser = ImportsParser(source, file, repo_name, repo_version, OUTPUT_DIR, file_path_in_repo)
+        imports_parser = ImportsParser(source, file, repo_name, repo_version, OUTPUT_DIR, file_path_in_repo, ML_LIBRARIES)
         imports_parser.parse()
         imports_parser.write_to_json()
 
