@@ -1,8 +1,10 @@
 import argparse
 import os
 import csv
+import datetime
+import time
 
-# python repo-analyzer/write_repo_release_to_csv.py -r "brombaut/tangent" -v 0.0.0 -n 1 -y 2019 -m Nov -d 6 -t 15:12:14
+# python data_transform_scripts/write_repo_release_to_csv.py -r "brombaut/tangent" -v 0.0.0 -n 1 -y 2019 -m Nov -d 6 -t 15:12:14
 parser = argparse.ArgumentParser()
 parser.add_argument('-r', '--repo', help="repo org/name")
 parser.add_argument('-v', '--repoversion', help="repo version (i.e. tag)")
@@ -21,6 +23,7 @@ RELEASE_FIELD_NAMES = [
     "year",
     "month",
     "day",
+    "date_time",
     "time"
 ]
 
@@ -40,6 +43,7 @@ def create_csv_file_if_necessary(file_path):
 
 
 def create_release_line_dict(args):
+    dt = datetime.datetime.strptime('{} {}, {}'.format(args.month, args.day, args.year), '%b %d, %Y')
     result = dict()
     result['repo'] = args.repo
     result['version'] = args.repoversion
@@ -47,6 +51,7 @@ def create_release_line_dict(args):
     result['year'] = args.year
     result['month'] = args.month
     result['day'] = args.day
+    result['date_time'] = dt.strftime("%d-%m-%Y")
     result['time'] = args.time
     return result
 

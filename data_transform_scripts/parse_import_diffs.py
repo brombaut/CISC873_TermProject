@@ -35,6 +35,15 @@ IMPORT_DIFFS_FIELD_NAMES = [
     "import_module"
 ]
 
+REPO_IMPORTS_FILE = "./data/csv/repo_imports.csv"
+REPO_IMPORTS_FIELD_NAMES = [
+    "repo",
+    "version",
+    "import_name",
+    "import_asname",
+    "import_module"
+]
+
 
 class Change:
     def __init__(self, type, import_obj):
@@ -114,12 +123,27 @@ class Release:
                         file_diffs[old_file.file_name].import_deleted(old_import)
         return list(file_diffs.values())
 
+    def get_release_imports(self, repo):
+        release_imports = dict()
+        for repo_file in self.files.values():
+            for key, import_obj in repo_file.imports.items():
+                result = {
+                    "repo": repo,
+                    "version": self.release,
+                    "import_name": import_obj.name,
+                    "import_asname": import_obj.asname,
+                    "import_module": import_obj.module
+                }
+                release_imports[key] = result
+        return list(release_imports.values())
+
 
 class Repo:
     def __init__(self, repo):
         self.repo = repo
         self.releases = dict()
         self.diffs = list()
+        self.repo_imports = list()
 
     def add_release(self, release):
         self.releases[release.release] = release
@@ -137,6 +161,12 @@ class Repo:
             self.diffs.extend(diffs_across_release)
             old_release = new_release
 
+    def parse_repo_imports(self):
+        sorted_releases = self._get_sorted_releases()
+        for rel in sorted_releases.values():
+            imports_for_release = rel.get_release_imports(self.repo)
+            self.repo_imports.extend(imports_for_release)
+
     def _get_sorted_releases(self):
         result = {k: v for k, v in sorted(self.releases.items(), key=lambda item: int(item[1].release_number))}
         return result
@@ -149,12 +179,19 @@ def main():
     add_imports_data_to_repos(imports_list, repos)
     for repo in repos.values():
         repo.parse_diffs()
+        repo.parse_repo_imports()
     diffs = list()
+    repo_imports = list()
     for repo in repos.values():
         diffs.extend(repo.diffs)
+        repo_imports.extend(repo.repo_imports)
+
     diffs_for_csv = transform_diffs_to_csv_writable_objects(diffs)
     create_csv_file_if_necessary(IMPORT_DIFFS_FILE, IMPORT_DIFFS_FIELD_NAMES)
     write_lines(IMPORT_DIFFS_FILE, IMPORT_DIFFS_FIELD_NAMES, diffs_for_csv)
+
+    create_csv_file_if_necessary(REPO_IMPORTS_FILE, REPO_IMPORTS_FIELD_NAMES)
+    write_lines(REPO_IMPORTS_FILE, REPO_IMPORTS_FIELD_NAMES, repo_imports)
 
 
 def read_csv(file_path, headers):
