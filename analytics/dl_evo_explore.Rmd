@@ -8,63 +8,122 @@ knitr::opts_chunk$set(echo = TRUE)
 library(data.table)
 library("dplyr")
 library(ggplot2)
+library(anytime)
 
 ```
 
 
 ```{r}
-import_diffs_file <- "/Users/BenRombaut/Desktop/Queens/CISC873/project/data/csv/import_diffs.csv"
-imports_file <- "/Users/BenRombaut/Desktop/Queens/CISC873/project/data/csv/imports.csv"
-releases_file <- "/Users/BenRombaut/Desktop/Queens/CISC873/project/data/csv/releases.csv"
+import_diffs_file <- "/home/local/SAIL/benjamin/dev/ml_evo/project/data/csv/import_diffs.csv"
+imports_file <- "/home/local/SAIL/benjamin/dev/ml_evo/project/data/csv/imports.csv"
+releases_file <- "/home/local/SAIL/benjamin/dev/ml_evo/project/data/csv/releases.csv"
+repo_imports_file <- "/home/local/SAIL/benjamin/dev/ml_evo/project/data/csv/repo_imports.csv"
+
 
 import_diffs <- fread(import_diffs_file, nThread=2)
 imports <- fread(imports_file, nThread=2)
 releases <- fread(releases_file, nThread=2)
+repo_imports <- fread(repo_imports_file, nThread=2)
 ```
 
+
 ```{r}
-build_release_date <- function(release) {
-  date_string <-
-    paste(c(release["month"], release["day"], release["year"]), collapse="-")
-  # r_date <-
-  #  as.POSIXlt(date_string, format = "%b-%d-%Y")
-  r_date <-
-    as.Date(date_string, format = "%b-%d-%Y")
-  return(as.character(r_date))
+USE_SAMPLE <- TRUE
+ml_libraries = c("tensorflow", "torch", "theano", "keras")
+ml_imports <- imports[name %in% ml_libraries]
+ml_imports$name <- factor(ml_imports$name)
+ml_import_diffs <- import_diffs[import_name %in% ml_libraries]
+ml_import_diffs$import_name <- factor(ml_import_diffs$import_name)
+ml_repo_imports <- repo_imports[import_name %in% ml_libraries]
+ml_repo_imports$import_name <- factor(ml_repo_imports$import_name)
+
+sample_repos <- c("google/tangent", "tensorflow/ranking", "keras-team/keras")
+sample_ml_imports <- ml_imports[repo %in% sample_repos]
+sample_ml_import_diffs <- ml_import_diffs[repo %in% sample_repos & import_name %in% ml_libraries]
+sample_ml_repo_imports <- ml_repo_imports[repo %in% sample_repos & import_name %in% ml_libraries]
+
+
+if (USE_SAMPLE) {
+  ml_imports <-sample_ml_imports
+  ml_import_diffs <- sample_ml_import_diffs
+  ml_repo_imports <- sample_ml_repo_imports
 }
-releases$release_date <- apply(releases, MARGIN=1, build_release_date)
+
+releases$release_date <- as.Date(releases$date_time, "%d-%m-%Y")
+
+head(ml_repo_imports)
+```
+
+
+
+```{r}
 
 get_release_date <- function(import_diff) {
   release_date <- releases[repo == import_diff["repo"] & version == import_diff["new_release"]]$release_date
+  return(as.Date(release_date))
+}
+ml_import_diffs$release_date <- apply(ml_import_diffs, MARGIN=1, get_release_date)
+
+
+get_release_date_1 <- function(repo_import) {
+  release_date <- releases[repo == repo_import["repo"] & version == repo_import["version"]]$release_date
   return(release_date)
 }
-import_diffs$release_date <- apply(import_diffs, MARGIN=1, get_release_date)
+
+ml_repo_imports$release_date <- apply(ml_repo_imports, MARGIN=1, get_release_date_1)
 ```
 
+
+DL Library Usages across time
 ```{r}
-ml_libraries = c("tensorflow", "torch", "theano", "keras")
-ml_imports <- imports[name %in% ml_libraries]
-ml_import_diffs <- import_diffs[import_name %in% ml_libraries]
-```
+library_usages <-
+  ml_repo_imports[, date_floored:=floor_date(as.Date(release_date, origin = "1970-01-01"), "month")] %>%
+  group_by(date_floored, import_name) %>% 
+  summarize(count=n())
+ggplot(library_usages, aes(fill=import_name, y=count, x=date_floored)) + 
+  geom_bar(position="dodge", stat="identity") +
+  ylim(0, max(library_usages$count))
 
+```
 
 Adding DL Lib Imports
 ```{r}
-libary_adds_across_releases <- ml_import_diffs[type == "ADD"] %>% 
-  group_by(release_date, import_name) %>% 
+libary_adds_across_releases <- 
+  ml_import_diffs[type == "ADD", date_floored:=floor_date(as.Date(release_date, origin = "1970-01-01"), "month")] %>%
+  group_by(date_floored, import_name) %>% 
   summarize(count=n())
-ggplot(libary_adds_across_releases, aes(fill=import_name, y=count, x=release_date)) + 
-    geom_bar(position="dodge", stat="identity")
 
+libary_adds_across_releases <- libary_adds_across_releases[complete.cases(libary_adds_across_releases), ]
+
+ggplot(libary_adds_across_releases, aes(fill=import_name, y=count, x=date_floored)) + 
+  geom_bar(position="dodge", stat="identity") +
+  ylim(0, max(libary_adds_across_releases$count))
+
+# ggplot(libary_adds_across_releases, aes(fill=import_name, y=count, x=release_date)) + 
+#   geom_bar(position="dodge", stat="identity") +
+#   xlim(as.Date("2017-01-01"), as.Date(max(ml_import_diffs$release_date))) + 
+#   ylim(0, 200)
 ```
 
 Deleting DL Lib Imports
 ```{r}
-libary_deletes_across_releases <- ml_import_diffs[type == "DELETE"] %>% 
-  group_by(new_release, import_name) %>% 
+
+libary_deletes_across_releases <- 
+  ml_import_diffs[type == "DELETE", release_month:=floor_date(as.Date(release_date, origin = "1970-01-01"), "month")] %>%
+  group_by(release_month, import_name) %>% 
   summarize(count=n())
-ggplot(libary_deletes_across_releases, aes(fill=import_name, y=count, x=new_release)) + 
-    geom_bar(position="dodge", stat="identity")
+
+ggplot(libary_deletes_across_releases, aes(fill=import_name, y=count, x=release_month)) + 
+  geom_bar(position="dodge", stat="identity") +
+  ylim(0, 100)
+
+
+# libary_deletes_across_releases <- 
+#   ml_import_diffs[type == "DELETE"] %>% 
+#   group_by(release_date, import_name) %>% 
+#   summarize(count=n())
+# ggplot(libary_deletes_across_releases, aes(fill=import_name, y=count, x=as.Date(release_date))) + 
+#    geom_bar(position="dodge", stat="identity")
 
 ```
 
