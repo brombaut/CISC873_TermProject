@@ -78,3 +78,5 @@ python data_transform_scripts/parse_import_jsons_to_csv.py
 # python data_transform_scripts/parse_call_jsons_to_csv.py
 
 python data_transform_scripts/parse_import_diffs.py
+
+find ./data/imports/ -name "*.READ" -print0 | xargs -0 rm

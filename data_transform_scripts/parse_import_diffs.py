@@ -44,6 +44,17 @@ REPO_IMPORTS_FIELD_NAMES = [
     "import_module"
 ]
 
+REPO_IMPORT_DIFFS_FILE = "./data/csv/repo_import_diffs.csv"
+REPO_IMPORT_DIFFS_FIELD_NAMES = [
+    "repo",
+    "old_release",
+    "new_release",
+    "type",
+    "import_name",
+    "import_asname",
+    "import_module"
+]
+
 
 class Change:
     def __init__(self, type, import_obj):
@@ -52,11 +63,10 @@ class Change:
 
 
 class Diff:
-    def __init__(self, repo, file, old_release, new_release):
+    def __init__(self, repo, old_release, new_release):
         self.repo = repo
         self.old_release = old_release
         self.new_release = new_release
-        self.file = file
         self.changes = list()
 
     def import_added(self, import_obj):
@@ -64,6 +74,17 @@ class Diff:
 
     def import_deleted(self, import_obj):
         self.changes.append(Change("DELETE", import_obj))
+
+
+class FileDiff(Diff):
+    def __init__(self, repo, file, old_release, new_release):
+        super().__init__(repo, old_release, new_release)
+        self.file = file
+
+
+class RepoVersionDiff(Diff):
+    def __init__(self, repo, old_release, new_release):
+        super().__init__(repo, old_release, new_release)
 
 
 class Import:
@@ -106,7 +127,7 @@ class Release:
             file_name = new_file.file_name
             if file_name not in file_diffs:
                 prev_release = previous_release_obj.release if previous_release_obj is not None else None
-                file_diffs[file_name] = Diff(repo, file_name, prev_release, self.release)
+                file_diffs[file_name] = FileDiff(repo, file_name, prev_release, self.release)
             old_file = previous_release_obj.files[file_name] if previous_release_obj is not None and file_name in previous_release_obj.files else None
             for new_import in new_file.imports.values():  # Loop over all imports in new_file
                 if old_file is None or not old_file.has_import(new_import.name):  # If file didnt exist in prev version or file didn't have the import in the previous version
@@ -115,7 +136,7 @@ class Release:
         if previous_release_obj is not None:
             for old_file in previous_release_obj.files.values():
                 if old_file.file_name not in file_diffs:
-                    file_diffs[old_file.file_name] = Diff(repo, old_file.file_name, previous_release_obj.release, self.release)
+                    file_diffs[old_file.file_name] = FileDiff(repo, old_file.file_name, previous_release_obj.release, self.release)
                 new_file = self.files[old_file.file_name] if old_file.file_name in self.files else None
                 for old_import in old_file.imports.values():  # Loop over all imports from prev version of file
                     # If file was deleted from prev version to new version, or if the old version has an import that the new version doesn't
@@ -123,19 +144,36 @@ class Release:
                         file_diffs[old_file.file_name].import_deleted(old_import)
         return list(file_diffs.values())
 
-    def get_release_imports(self, repo):
-        release_imports = dict()
+    def get_repo_import_diff(self, repo, previous_release_obj):
+        prev_release = previous_release_obj.release if previous_release_obj is not None else None
+        diff = RepoVersionDiff(repo, prev_release, self.release)
+        # Looking at first release
+        if previous_release_obj is None:
+            for curr_import in self.get_imports():
+                diff.import_added(curr_import)
+            return diff
+        for curr_import in self.get_imports():
+            # New import not in previous release
+            if not previous_release_obj.has_import(curr_import):
+                diff.import_added(curr_import)
+        for prev_import in previous_release_obj.get_imports():
+            # Import was deleted from prev release to new release
+            if not self.has_import(prev_import):
+                diff.import_deleted(prev_import)
+        return diff
+
+    def get_imports(self):
+        result = dict()
         for repo_file in self.files.values():
             for key, import_obj in repo_file.imports.items():
-                result = {
-                    "repo": repo,
-                    "version": self.release,
-                    "import_name": import_obj.name,
-                    "import_asname": import_obj.asname,
-                    "import_module": import_obj.module
-                }
-                release_imports[key] = result
-        return list(release_imports.values())
+                result[import_obj.name] = import_obj
+        return list(result.values())
+
+    def has_import(self, import_obj):
+        for f in self.files.values():
+            if f.has_import(import_obj.name):
+                return True
+        return False
 
 
 class Repo:
@@ -144,6 +182,7 @@ class Repo:
         self.releases = dict()
         self.diffs = list()
         self.repo_imports = list()
+        self.repo_import_diffs = list()
 
     def add_release(self, release):
         self.releases[release.release] = release
@@ -152,7 +191,7 @@ class Repo:
         release = import_line['repo_version']
         self.releases[release].add_import(import_line)
 
-    def parse_diffs(self):
+    def parse_file_import_diffs(self):
         sorted_releases = self._get_sorted_releases()
         old_release = None
         for rel in sorted_releases.values():
@@ -164,8 +203,25 @@ class Repo:
     def parse_repo_imports(self):
         sorted_releases = self._get_sorted_releases()
         for rel in sorted_releases.values():
-            imports_for_release = rel.get_release_imports(self.repo)
+            imports_for_release = list()
+            for i in rel.get_imports():
+                imports_for_release.append({
+                    "repo": self.repo,
+                    "version": rel.release,
+                    "import_name": i.name,
+                    "import_asname": i.asname,
+                    "import_module": i.module
+                })
             self.repo_imports.extend(imports_for_release)
+
+    def parse_repo_import_diffs(self):
+        sorted_releases = self._get_sorted_releases()
+        old_release = None
+        for rel in sorted_releases.values():
+            new_release = rel
+            repo_import_diff_across_release = new_release.get_repo_import_diff(self.repo, old_release)
+            self.repo_import_diffs.append(repo_import_diff_across_release)
+            old_release = new_release
 
     def _get_sorted_releases(self):
         result = {k: v for k, v in sorted(self.releases.items(), key=lambda item: int(item[1].release_number))}
@@ -178,20 +234,27 @@ def main():
     imports_list = read_csv(IMPORTS_FILE, IMPORT_FIELD_NAMES)
     add_imports_data_to_repos(imports_list, repos)
     for repo in repos.values():
-        repo.parse_diffs()
+        repo.parse_file_import_diffs()
         repo.parse_repo_imports()
+        repo.parse_repo_import_diffs()
     diffs = list()
     repo_imports = list()
+    repo_import_diffs = list()
     for repo in repos.values():
         diffs.extend(repo.diffs)
         repo_imports.extend(repo.repo_imports)
-
+        repo_import_diffs.extend(repo.repo_import_diffs)
+    # Import Diffs at file level
     diffs_for_csv = transform_diffs_to_csv_writable_objects(diffs)
     create_csv_file_if_necessary(IMPORT_DIFFS_FILE, IMPORT_DIFFS_FIELD_NAMES)
     write_lines(IMPORT_DIFFS_FILE, IMPORT_DIFFS_FIELD_NAMES, diffs_for_csv)
-
+    # Imports at repo level
     create_csv_file_if_necessary(REPO_IMPORTS_FILE, REPO_IMPORTS_FIELD_NAMES)
     write_lines(REPO_IMPORTS_FILE, REPO_IMPORTS_FIELD_NAMES, repo_imports)
+    # Import Diffs at repo level
+    repo_import_diffs_for_csv = transform_repo_import_diffs_to_csv_writable_objects(repo_import_diffs)
+    create_csv_file_if_necessary(REPO_IMPORT_DIFFS_FILE, REPO_IMPORT_DIFFS_FIELD_NAMES)
+    write_lines(REPO_IMPORT_DIFFS_FILE, REPO_IMPORT_DIFFS_FIELD_NAMES, repo_import_diffs_for_csv)
 
 
 def read_csv(file_path, headers):
@@ -234,6 +297,26 @@ def transform_diffs_to_csv_writable_objects(diffs):
             all_change_info = {
                 "repo": repo,
                 "file": file,
+                "old_release": old_release,
+                "new_release": new_release,
+                "type": change.type,
+                "import_name": change.import_obj.name,
+                "import_asname": change.import_obj.asname,
+                "import_module": change.import_obj.module
+            }
+            result.append(all_change_info)
+    return result
+
+
+def transform_repo_import_diffs_to_csv_writable_objects(diffs):
+    result = list()
+    for diff in diffs:
+        repo = diff.repo
+        old_release = diff.old_release
+        new_release = diff.new_release
+        for change in diff.changes:
+            all_change_info = {
+                "repo": repo,
                 "old_release": old_release,
                 "new_release": new_release,
                 "type": change.type,
