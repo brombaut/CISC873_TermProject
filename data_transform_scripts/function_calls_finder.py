@@ -14,12 +14,16 @@ class FunctionCallsFinder(ast.NodeVisitor):
         self.parent_function_def = prev_function_def
 
     def visit_Call(self, node):
-        call = dict()
-        call['name'] = self._parse_func(node.func)
-        call['params'] = self._parse_params(node.args, node.keywords)
-        call['parent_function'] = self._parent_func_name()
-        self.calls.append(call)
-        self.generic_visit(node)
+        try:
+            call = dict()
+            call['name'] = self._parse_func(node.func)
+            # call['params'] = self._parse_params(node.args, node.keywords)
+            call['params'] = None
+            call['parent_function'] = self._parent_func_name()
+            self.calls.append(call)
+            self.generic_visit(node)
+        except Exception as e:
+            print(e)
 
     def _parse_params(self, args, keywords):
         params = {}
@@ -41,6 +45,8 @@ class FunctionCallsFinder(ast.NodeVisitor):
             return self._parse_attribute(func)
         elif isinstance(func, ast.Call):
             return self._parse_call(func)
+        elif isinstance(func, ast.Subscript):
+            return self._parse_subscript(func)
         else:
             # return "Unknown ParseCall Instance: {}".format(func.__class__.__name__)
             raise Exception("Unknown ParseCall Instance: {}".format(func.__class__.__name__))
@@ -86,8 +92,11 @@ class FunctionCallsFinder(ast.NodeVisitor):
             return self._parse_attribute(n_attr.value) + "." + n_attr.attr
         elif isinstance(n_attr.value, ast.Call):
             return self._parse_call(n_attr.value)
+        elif isinstance(n_attr.value, ast.Constant):
+            return self._parse_constant(n_attr.value)
+        elif isinstance(n_attr.value, ast.Subscript):
+            return self._parse_subscript(n_attr.value)
         else:
-            print(n_attr.value)
             raise Exception("Unknown ParseAttribute Instance: {}".format(n_attr.value.__class__.__name__))
 
     def _parse_name(self, n_name):
@@ -154,6 +163,8 @@ class FunctionCallsFinder(ast.NodeVisitor):
             return "{}:{}".format(lower, upper)
         elif isinstance(n_slice, ast.Name):
             return self._parse_name(n_slice)
+        elif isinstance(n_slice, ast.Constant):
+            return self._parse_constant(n_slice)
         else:
             print("ParseSlice: Unknown n_slice={}".format(n_slice.__class__.__name__))
             return "UNKNOWN={}".format(n_slice.__class__.__name__)

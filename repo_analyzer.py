@@ -53,9 +53,9 @@ def main():
         except Exception as e:
             print("Error Parsing {}--{}--{}".format(repo_name, repo_version, file_path_in_repo))
 
-        # collector = FunctionCallsCollector(file, repo_name, repo_version, source, OUTPUT_DIR, file_path_in_repo)
-        # collector.find_all()
-        # collector.export_to_json()
+        collector = FunctionCallsCollector(file, repo_name, repo_version, source, OUTPUT_DIR, file_path_in_repo)
+        collector.find_all()
+        collector.export_to_json()
 
 
 def exit_if_invalid_args(args):

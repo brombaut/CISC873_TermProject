@@ -6,28 +6,28 @@ declare -a repos=(
   "tensorflow/ranking"
   "chainer/chainercv"
   "OpenMined/PySyft"
-  "keras-team/keras"
-  "deepchem/deepchem"
-  "ray-project/ray"
-  "NifTK/NiftyNet"
-  "streamlit/streamlit"
-  "AKSHAYUBHAT/DeepVideoAnalytics"
-  "tensorlayer/tensorlayer"
-  "d2l-ai/d2l-zh"
-  "aleju/imgaug"
-  "tensorpack/tensorpack"
-  "deepmipt/DeepPavlov"
-  "OpenNMT/OpenNMT-py"
-  "GPflow/GPflow"
-  "Unity-Technologies/ml-agents"
-  "williamFalcon/pytorch-lightning"
-  "allenai/allennlp"
-  "NTMC-Community/MatchZoo"
-  "asyml/texar"
-  "NVIDIA/OpenSeq2Seq"
-  "anxiao/bert-as-service"
-  "evilsocket/pwnagotchi"
-  "microsoft/nni"
+  # "keras-team/keras"
+  # "deepchem/deepchem"
+  # "ray-project/ray"
+  # "NifTK/NiftyNet"
+  # "streamlit/streamlit"
+  # "AKSHAYUBHAT/DeepVideoAnalytics"
+  # "tensorlayer/tensorlayer"
+  # "d2l-ai/d2l-zh"
+  # "aleju/imgaug"
+  # "tensorpack/tensorpack"
+  # "deepmipt/DeepPavlov"
+  # "OpenNMT/OpenNMT-py"
+  # "GPflow/GPflow"
+  # "Unity-Technologies/ml-agents"
+  # "williamFalcon/pytorch-lightning"
+  # "allenai/allennlp"
+  # "NTMC-Community/MatchZoo"
+  # "asyml/texar"
+  # "NVIDIA/OpenSeq2Seq"
+  # "anxiao/bert-as-service"
+  # "evilsocket/pwnagotchi"
+  # "microsoft/nni"
 )
 
 source env/bin/activate
@@ -75,8 +75,9 @@ done
 
 # Extract all into single csv
 python data_transform_scripts/parse_import_jsons_to_csv.py
-# python data_transform_scripts/parse_call_jsons_to_csv.py
+python data_transform_scripts/parse_call_jsons_to_csv.py
 
 python data_transform_scripts/parse_import_diffs.py
 
 find ./data/imports/ -name "*.READ" -print0 | xargs -0 rm
+find ./data/calls/ -name "*.READ" -print0 | xargs -0 rm
