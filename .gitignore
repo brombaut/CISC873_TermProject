@@ -5,7 +5,8 @@ examples/
 data/**/*.json
 data/**/*.json.READ
 data/**/*.csv
-
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
 # Compiled source #
 ###################
 *.com
