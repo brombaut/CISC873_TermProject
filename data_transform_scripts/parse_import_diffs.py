@@ -1,6 +1,6 @@
 import csv
-import json
 import os
+import utils
 
 RELEASES_FILE = "./data/csv/releases.csv"
 RELEASE_FIELD_NAMES = [
@@ -246,15 +246,15 @@ def main():
         repo_import_diffs.extend(repo.repo_import_diffs)
     # Import Diffs at file level
     diffs_for_csv = transform_diffs_to_csv_writable_objects(diffs)
-    create_csv_file_if_necessary(IMPORT_DIFFS_FILE, IMPORT_DIFFS_FIELD_NAMES)
-    write_lines(IMPORT_DIFFS_FILE, IMPORT_DIFFS_FIELD_NAMES, diffs_for_csv)
+    utils.create_csv_file(IMPORT_DIFFS_FILE, IMPORT_DIFFS_FIELD_NAMES)
+    utils.write_lines_to_existing_csv(IMPORT_DIFFS_FILE, IMPORT_DIFFS_FIELD_NAMES, diffs_for_csv)
     # Imports at repo level
-    create_csv_file_if_necessary(REPO_IMPORTS_FILE, REPO_IMPORTS_FIELD_NAMES)
-    write_lines(REPO_IMPORTS_FILE, REPO_IMPORTS_FIELD_NAMES, repo_imports)
+    utils.create_csv_file(REPO_IMPORTS_FILE, REPO_IMPORTS_FIELD_NAMES)
+    utils.write_lines_to_existing_csv(REPO_IMPORTS_FILE, REPO_IMPORTS_FIELD_NAMES, repo_imports)
     # Import Diffs at repo level
     repo_import_diffs_for_csv = transform_repo_import_diffs_to_csv_writable_objects(repo_import_diffs)
-    create_csv_file_if_necessary(REPO_IMPORT_DIFFS_FILE, REPO_IMPORT_DIFFS_FIELD_NAMES)
-    write_lines(REPO_IMPORT_DIFFS_FILE, REPO_IMPORT_DIFFS_FIELD_NAMES, repo_import_diffs_for_csv)
+    utils.create_csv_file(REPO_IMPORT_DIFFS_FILE, REPO_IMPORT_DIFFS_FIELD_NAMES)
+    utils.write_lines_to_existing_csv(REPO_IMPORT_DIFFS_FILE, REPO_IMPORT_DIFFS_FIELD_NAMES, repo_import_diffs_for_csv)
 
 
 def read_csv(file_path, headers):
@@ -326,20 +326,6 @@ def transform_repo_import_diffs_to_csv_writable_objects(diffs):
             }
             result.append(all_change_info)
     return result
-
-
-def create_csv_file_if_necessary(file_path, headers):
-    if not os.path.isfile(file_path):
-        with open(file_path, 'w') as csv_file:
-            writer = csv.DictWriter(csv_file, headers)
-            writer.writeheader()
-
-
-def write_lines(output_file_path, headers, dicts_to_write):
-    with open(output_file_path, 'a') as csv_file:
-        writer = csv.DictWriter(csv_file, headers)
-        for line in dicts_to_write:
-            writer.writerow(line)
 
 
 if __name__ == "__main__":

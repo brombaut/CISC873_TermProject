@@ -26,7 +26,7 @@ REPO_IMPORT_DIFFS_FIELD_NAMES = [
     "import_module"
 ]
 
-REPO_IMPORT_DIFFS_TIMELINE_LINE = "./data/csv/repo_import_diffs_timeline.csv"
+REPO_IMPORT_DIFFS_TIMELINE_FILE = "./data/csv/repo_import_diffs_timeline.csv"
 REPO_IMPORT_DIFFS_TIMELINE_FIELD_NAMES = [
     "date",
     "import",
@@ -42,8 +42,8 @@ def main():
     repo_import_diffs.sort(key=get_release_date)
     timeline = build_timeline(repo_import_diffs)
     flattened_timeline = flatten(timeline)
-    utils.create_csv_file(REPO_IMPORT_DIFFS_TIMELINE_LINE, REPO_IMPORT_DIFFS_TIMELINE_FIELD_NAMES)
-    utils.write_lines_to_existing_csv(REPO_IMPORT_DIFFS_TIMELINE_LINE, REPO_IMPORT_DIFFS_TIMELINE_FIELD_NAMES, flattened_timeline)
+    utils.create_csv_file(REPO_IMPORT_DIFFS_TIMELINE_FILE, REPO_IMPORT_DIFFS_TIMELINE_FIELD_NAMES)
+    utils.write_lines_to_existing_csv(REPO_IMPORT_DIFFS_TIMELINE_FILE, REPO_IMPORT_DIFFS_TIMELINE_FIELD_NAMES, flattened_timeline)
 
 
 def build_releases(releases_lines):
