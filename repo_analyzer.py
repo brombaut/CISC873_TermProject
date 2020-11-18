@@ -44,6 +44,7 @@ def main():
     repo_version = args.repoversion
     ml_library_py_files = get_files_that_import_ml_libs(py_files, repo_dir, repo_name, repo_version)
     for file in ml_library_py_files:
+        file_path_in_repo = ""
         try:
             file_path_in_repo = file[len(repo_dir) + 1:]
             source = read_py_file_source(file)
