@@ -18,24 +18,41 @@ import_diffs_file <- "/home/local/SAIL/benjamin/dev/ml_evo/project/data/csv/impo
 imports_file <- "/home/local/SAIL/benjamin/dev/ml_evo/project/data/csv/imports.csv"
 releases_file <- "/home/local/SAIL/benjamin/dev/ml_evo/project/data/csv/releases.csv"
 repo_imports_file <- "/home/local/SAIL/benjamin/dev/ml_evo/project/data/csv/repo_imports.csv"
-
+repo_import_diffs_file <- "/home/local/SAIL/benjamin/dev/ml_evo/project/data/csv/repo_import_diffs.csv"
+repo_import_diffs_timeline_file <- "/home/local/SAIL/benjamin/dev/ml_evo/project/data/csv/repo_import_diffs_timeline.csv"
 
 import_diffs <- fread(import_diffs_file, nThread=2)
+import_diffs$type = factor(import_diffs$type)
+
 imports <- fread(imports_file, nThread=2)
 releases <- fread(releases_file, nThread=2)
 repo_imports <- fread(repo_imports_file, nThread=2)
+repo_import_diffs <- fread(repo_import_diffs_file, nThread=2)
+repo_import_diffs$type = factor(repo_import_diffs$type)
+repo_import_diffs_timeline <- fread(repo_import_diffs_timeline_file, nThread=2)
+repo_import_diffs_timeline$date = as.Date(repo_import_diffs_timeline$date)
+
 ```
 
 
 ```{r}
 USE_SAMPLE <- TRUE
 ml_libraries = c("tensorflow", "torch", "theano", "keras")
+
 ml_imports <- imports[name %in% ml_libraries]
 ml_imports$name <- factor(ml_imports$name)
+
 ml_import_diffs <- import_diffs[import_name %in% ml_libraries]
 ml_import_diffs$import_name <- factor(ml_import_diffs$import_name)
+
 ml_repo_imports <- repo_imports[import_name %in% ml_libraries]
 ml_repo_imports$import_name <- factor(ml_repo_imports$import_name)
+
+ml_repo_import_diffs <- repo_import_diffs[import_name %in% ml_libraries]
+ml_repo_import_diffs$import_name <- factor(ml_repo_import_diffs$import_name)
+
+ml_repo_import_diffs_timeline <- repo_import_diffs_timeline[import %in% ml_libraries]
+ml_repo_import_diffs_timeline$import <- factor(ml_repo_import_diffs_timeline$import)
 
 sample_repos <- c("google/tangent", "tensorflow/ranking", "keras-team/keras")
 sample_ml_imports <- ml_imports[repo %in% sample_repos]
@@ -76,13 +93,9 @@ ml_repo_imports$release_date <- apply(ml_repo_imports, MARGIN=1, get_release_dat
 
 DL Library Usages across time
 ```{r}
-library_usages <-
-  ml_repo_imports[, date_floored:=floor_date(as.Date(release_date, origin = "1970-01-01"), "month")] %>%
-  group_by(date_floored, import_name) %>% 
-  summarize(count=n())
-ggplot(library_usages, aes(fill=import_name, y=count, x=date_floored)) + 
-  geom_bar(position="dodge", stat="identity") +
-  ylim(0, max(library_usages$count))
+
+ggplot(data=ml_repo_import_diffs_timeline, aes(x=date, y=count)) +
+  geom_line(aes(colour=import))
 
 ```
 
