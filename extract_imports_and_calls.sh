@@ -61,7 +61,63 @@
 
 # TODO: List of repos
 declare -a repos=(
-
+  "google/tangent"
+  "tensorflow/ranking"
+  "chainer/chainercv"
+  "OpenMined/PySyft"
+  "keras-team/keras"
+  "deepchem/deepchem"
+  "ray-project/ray"
+  "NifTK/NiftyNet"
+  "streamlit/streamlit"
+  "AKSHAYUBHAT/DeepVideoAnalytics"
+  "tensorlayer/tensorlayer"
+  "d2l-ai/d2l-zh"
+  "tensorpack/tensorpack"
+  "deepmipt/DeepPavlov"
+  "OpenNMT/OpenNMT-py"
+  "GPflow/GPflow"
+  "Unity-Technologies/ml-agents"
+  "williamFalcon/pytorch-lightning"
+  "allenai/allennlp"
+  "NTMC-Community/MatchZoo"
+  "asyml/texar"
+  "NVIDIA/OpenSeq2Seq"
+  "anxiao/bert-as-service"
+  "evilsocket/pwnagotchi"
+  "microsoft/nni"
+  "ClimbsRocks/auto_ml"
+  "google/deepvariant"
+  "NervanaSystems/nlp-architect"
+  "tryolabs/luminoth"
+  "keras-team/autokeras"
+  "uber/ludwig"
+  "wkentaro/labelme"
+  "catalyst-team/catalyst"
+  "AlexEMG/DeepLabCut"
+  "PetrochukM/PyTorch-NLP"
+  "deeppomf/DeepCreamPy"
+  "pierluigiferrari/ssd_keras"
+  "tensorflow/adanet"
+  "NervanaSystems/coach"
+  "autonomio/talos"
+  "tflearn/tflearn"
+  "dmlc/gluon-nlp"
+  "dmlc/gluon-cv"
+  "deepmind/sonnet"
+  "keras-team/keras-applications"
+  "shenweichen/DeepCTR"
+  "lene/nn-wtf"
+  "minimaxir/textgenrnn"
+  "raghakot/keras-vis"
+  "Picovoice/porcupine"
+  "tsurumeso/waifu2x-chainer"
+  "asappresearch/sru"
+  "Hironsan/anago"
+  "maciejkula/spotlight"
+  "maxpumperla/elephas"
+  "tzutalin/labelImg"
+  "DT42/BerryNet"
 )
 
 source env/bin/activate
@@ -94,7 +150,7 @@ do
       git checkout $tag
       cd ../../../  # Back to root level
       
-      python ./repo_analyzer.py --dir ${REPOS_DATA_DIR}${repo_dir} --repo $repo --repoversion $tag
+#      python ./repo_analyzer.py --dir ${REPOS_DATA_DIR}${repo_dir} --repo $repo --repoversion $tag
       
       python ./data_transform_scripts/write_repo_release_to_csv.py -r $repo -v $tag -n $release_count -y $year -m $month -d $day -t $time
       
@@ -108,11 +164,11 @@ done
 
 
 # Extract all into single csv
-python data_transform_scripts/parse_import_jsons_to_csv.py
-python data_transform_scripts/parse_call_jsons_to_csv.py
+# python data_transform_scripts/parse_import_jsons_to_csv.py
+# python data_transform_scripts/parse_call_jsons_to_csv.py
 
-python data_transform_scripts/parse_import_diffs.py
-python data_transform_scripts/repo_import_diffs_totals.py
+# python data_transform_scripts/parse_import_diffs.py
+# python data_transform_scripts/repo_import_diffs_totals.py
 
-find ./data/imports/ -name "*.READ" -print0 | xargs -0 rm
-find ./data/calls/ -name "*.READ" -print0 | xargs -0 rm
+# find ./data/imports/ -name "*.READ" -print0 | xargs -0 rm
+# find ./data/calls/ -name "*.READ" -print0 | xargs -0 rm
