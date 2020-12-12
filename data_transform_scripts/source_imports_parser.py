@@ -4,7 +4,7 @@ import json
 
 
 class ImportsParser:
-    def __init__(self, source, file, repo, version, output_dir, file_path_in_repo, dl_libraries):
+    def __init__(self, source, file, repo, version, output_dir, file_path_in_repo, dl_libraries=None):
         self.source = source
         self.abs_file = file
         self.file_path_in_repo = file_path_in_repo
@@ -21,7 +21,7 @@ class ImportsParser:
         for item in tree_body:
             if isinstance(item, ast.Import):
                 for i in item.names:
-                    if i.name in self.dl_libraries:
+                    if self.dl_libraries is None or i.name in self.dl_libraries:
                         new_import = dict()
                         new_import['name'] = i.name
                         new_import['asname'] = i.asname
@@ -31,7 +31,7 @@ class ImportsParser:
                 if item.level > 0:
                     # Relative imports
                     continue
-                if item.module in self.dl_libraries:
+                if  self.dl_libraries is None or item.module in self.dl_libraries:
                     for i in item.names:
                         new_from_import = dict()
                         new_from_import['name'] = i.name

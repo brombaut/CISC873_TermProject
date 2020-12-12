@@ -73,7 +73,7 @@ def build_timeline(repo_import_diffs):
     result = dict()
     tally = dict()
     for rid in repo_import_diffs:
-        # TODO: Watch import name vs module
+        # import_name = rid['import_module'] if rid['import_module'] is not None else rid['import_name']
         import_name = rid['import_name']
         if import_name not in tally:
             tally[import_name] = 0
