@@ -5,14 +5,14 @@ import os
 from bs4 import BeautifulSoup
 
 AOO_CATEGORIES = [
-    'self-driving-car',
+    # 'self-driving-car', # Got
     # 'autonomous-driving',
     # 'autonomous-vehicles',
-    # 'object-detection',
+    # 'object-detection',  # Got
     # 'object-detection?projectPage=2',
     # 'object-detection?projectPage=3',
     # 'object-detection?projectPage=4',
-    # 'artificial-intelligence',
+    # 'artificial-intelligence',  # Got
     # 'artificial-intelligence?projectPage=2',
     # 'artificial-intelligence?projectPage=3',
     # 'artificial-intelligence?projectPage=4',
