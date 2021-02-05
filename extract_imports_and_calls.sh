@@ -1,6 +1,8 @@
 #!/bin/bash
 
 declare -a repos=(
+  "google/tangent"
+  "tensorflow/ranking"
 )
 
 source env/bin/activate
